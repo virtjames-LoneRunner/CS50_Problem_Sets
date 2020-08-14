@@ -183,11 +183,11 @@ int check_validity(int digits[])
 {
     bool valid = false;
     for (int j = 1; j <= 15; j += 2)
-        {
-            odd[odd_count] = digits[j];
-            odd_count += 1;
-        }
-    for (int c = 0; c <= odd_count; c++ )
+    {
+        odd[odd_count] = digits[j];
+        odd_count += 1;
+    }
+    for (int c = 0; c <= odd_count; c++)
     {
         odd_double = odd[c] * 2;
         if (odd_double > 9)                 // If the product has two digits, separate the digits.
