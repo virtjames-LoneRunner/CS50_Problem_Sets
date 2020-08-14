@@ -150,7 +150,7 @@ int main(void)
         confirm = check_validity(card);
         if (confirm == true)
         {
-            printf("AMERICAN EXPRESS\n");
+            printf("AMEX\n");
         }
         else if (confirm == false)
         {
