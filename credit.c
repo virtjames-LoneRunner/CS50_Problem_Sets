@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <cs50.h>
 
-int card[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+//int card[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 int odd_count = 0;
 int odd[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -20,7 +20,7 @@ int check_validity(int digits[]);
 
 int main(void)
 {
-    int card_type;
+    int card_type = 0;
     // Get user input
     int card[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     long int card_number = get_long("Number : ");
@@ -95,7 +95,7 @@ int main(void)
         }
         else if (card[15] == 5)
         {
-            if (0 < card[14] < 6)
+            if ((0 < card[14]) && (card[14] < 6))
             {
                 card_type = 4;
             }
@@ -181,44 +181,45 @@ int main(void)
 // If card passes initial test, check with Luhn's Algorithm.
 int check_validity(int digits[])
 {
+    bool valid = false;
     for (int j = 1; j <= 15; j += 2)
         {
             odd[odd_count] = digits[j];
             odd_count += 1;
         }
-        for (int c = 0; c <= odd_count; c++ )
+    for (int c = 0; c <= odd_count; c++ )
+    {
+        //int odd_double = 0;
+        odd_double = odd[c] * 2;
+        if (odd_double > 9)                 // If the product has two digits, separate the digits.
         {
-            int odd_double = 0;
-            odd_double = odd[c] * 2;
-            if (odd_double > 9)                 // If the product has two digits, separate the digits.
-            {
-                int first = odd_double % 10;
-                int second = odd_double /= 10;
-                odd[c] = first + second;        // Add the two digits.
-            }
-            else if (odd_double < 10)
-            {
-                odd[c] = odd_double;
-            }
-            odd_total += odd[c];
+            int first = odd_double % 10;
+            int second = odd_double /= 10;
+            odd[c] = first + second;        // Add the two digits.
         }
-        for (int m = 0; m <= 14; m += 2)
+        else if (odd_double < 10)
         {
-            even[even_count] = digits[m];
-            even_total += even[even_count];
-            even_count += 1;
+            odd[c] = odd_double;
         }
-        int total;
-        total = odd_total + even_total;
+        odd_total += odd[c];
+    }
+    for (int m = 0; m <= 14; m += 2)
+    {
+        even[even_count] = digits[m];
+        even_total += even[even_count];
+        even_count += 1;
+    }
+    //int total;
+    total = odd_total + even_total;
 
-        // Check if the card is valid.
-        if (total % 10 == 0)
-        {
-            return true;
-        }
-        else if (total % 10 != 0)
-        {
-            return false;
-        }
-
+    // Check if the card is valid.
+    if (total % 10 == 0)
+    {
+        valid = true;
+    }
+    else if (total % 10 != 0)
+    {
+        valid = false;
+    }
+    return valid;
 }
