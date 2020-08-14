@@ -189,7 +189,6 @@ int check_validity(int digits[])
         }
     for (int c = 0; c <= odd_count; c++ )
     {
-        //int odd_double = 0;
         odd_double = odd[c] * 2;
         if (odd_double > 9)                 // If the product has two digits, separate the digits.
         {
@@ -209,7 +208,6 @@ int check_validity(int digits[])
         even_total += even[even_count];
         even_count += 1;
     }
-    //int total;
     total = odd_total + even_total;
 
     // Check if the card is valid.
