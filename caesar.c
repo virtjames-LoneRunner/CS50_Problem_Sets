@@ -74,7 +74,9 @@ int main(int argc, string argv[])
         printf("Usage: ./ceasar key \n");
         return 1;
     }
-    else if (successful == 1)
+    //printf("%i\n", successful);
+
+    if (successful == 1)
     {
         return 1;
     }
