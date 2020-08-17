@@ -21,7 +21,7 @@ int main(int argc, string argv[])
 
         for (int i = 0; i < argv_length; i++)
         {
-            character_test[i] = argv[1][i];
+            character_test[i] = *argv[1][i];
             if (isdigit(character_test[i]))
             {
                 good_input += 0;
@@ -37,7 +37,7 @@ int main(int argc, string argv[])
 
         if (good_input == 0)
         {
-            int key = atoi(argv[1]);
+            int key = atoi(*argv[1]);
             printf("Cipher key: %i\n", key);
 
             string message = get_string("plaintext: ");
