@@ -14,7 +14,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    if (argc >= 2)
+    else if (argc >= 2)
     {
         char character_test[argv_length];
         int good_input = 0;
