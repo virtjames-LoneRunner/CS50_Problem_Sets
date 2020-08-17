@@ -4,18 +4,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
 int main(int argc, string argv[])
 {
-    int argv_length = strlen(argv[1]);
 
-    if(argc < 2)
-    {
-        printf("Usage: ./ceasar key \n");
-        return 1;
-    }
 
-    else if (argc >= 2)
+    if (argc >= 2)
     {
+        int argv_length = strlen(argv[1]);
         char character_test[argv_length];
         int good_input = 0;
 
@@ -38,7 +35,7 @@ int main(int argc, string argv[])
         if (good_input == 0)
         {
             int key = atoi(argv[1]);
-            printf("Cipher key: %i\n", key);
+            //printf("Cipher key: %i\n", good_input);
 
             string message = get_string("plaintext: ");
             int length = strlen(message);
@@ -69,8 +66,19 @@ int main(int argc, string argv[])
             printf("Usage: ./ceasar key \n");
             return 1;
         }
-        printf("\n");
+        //printf("\n");
     }
+    else if(argc != 2)
+    {
+        printf("Usage: ./ceasar key \n");
+        return 1;
+    }
+    else
+    {
+        printf("Usage: ./ceasar key \n");
+        return 1;
+    }
+    printf("\n");
 
 
 
