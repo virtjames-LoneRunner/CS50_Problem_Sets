@@ -6,7 +6,7 @@
 
 int main(int argc, string argv[])
 {
-    int argv_length = strlen(argv[1]);
+    int argv_length = strlen(*argv[1]);
 
     if(argc != 2)
     {
