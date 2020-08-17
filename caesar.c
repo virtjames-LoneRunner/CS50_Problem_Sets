@@ -73,6 +73,12 @@ int main(int argc, string argv[])
         printf("Usage: ./ceasar key \n");
         return 1;
     }
+    else
+    {
+        printf("Usage: ./ceasar key \n");
+        return 1;
+    }
+    printf("\n");
 
 
 
