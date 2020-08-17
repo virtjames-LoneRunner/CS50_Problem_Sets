@@ -9,13 +9,14 @@
 int main(int argc, string argv[])
 {
 
-
+    // Check if there is an argument
     if (argc == 2)
     {
         int argv_length = strlen(argv[1]);
         char character_test[argv_length];
         int good_input = 0;
 
+        // Check if argument is valid/an integer
         for (int i = 0; i < argv_length; i++)
         {
             character_test[i] = argv[1][i];
@@ -31,16 +32,16 @@ int main(int argc, string argv[])
 
 
 
-
+        // If argument is valid, proceed
         if (good_input == 0)
         {
-            int key = atoi(argv[1]);
-            //printf("Cipher key: %i\n", good_input);
+            int key = atoi(argv[1]); // Convert string to integer
 
             string message = get_string("plaintext: ");
             int length = strlen(message);
             printf("ciphertext: ");
 
+            // Encrypts message using Caesar's cipher
             for (int i = 0; i < length; i++)
             {
                 if (message[i] >= 'a' && message[i] <= 'z')
@@ -61,6 +62,8 @@ int main(int argc, string argv[])
             }
 
         }
+
+    // If one or more of the requirement/s is/are not met
         else
         {
             printf("Usage: ./ceasar key \n");
@@ -76,7 +79,7 @@ int main(int argc, string argv[])
 
     printf("\n");
 
-
+    return 0;
 
 
 
