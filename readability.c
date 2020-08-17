@@ -57,11 +57,12 @@ void check_level(int letters, int sentences, int words)
     float L = (letters / (float)words) * 100;
     float S = (sentences / (float)words) * 100;
 
-    L = round(L);
-    S = roundf(S);
+    //L = round(L);
+    //S = roundf(S);
 
     float index_score = 0.0588 * L - 0.296 * S - 15.8;
-    //index_score = round(index_score);
+
+    index_score = round(index_score);
 
     // Determine Readability
     if (index_score < 1)
