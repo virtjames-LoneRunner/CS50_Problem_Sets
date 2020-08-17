@@ -42,7 +42,10 @@ int main(void)
         }
         if ((int)characters[i] == 46 || (int)characters[i] == 33 || (int)characters[i] == 63)
         {
-            num_of_sentences += 1;
+            if((int)characters[i+1] != 46 || (int)characters[i+1] != 33 || (int)characters[i+1] != 63)
+            {
+                num_of_words += 1;
+            }
         }
 
     }
