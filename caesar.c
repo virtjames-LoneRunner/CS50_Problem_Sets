@@ -26,7 +26,7 @@ int main(int argc, string argv[])
             }
             else
             {
-                good_input +=1;
+                good_input += 1;
             }
         }
 
@@ -35,7 +35,7 @@ int main(int argc, string argv[])
         successful = encrypt(good_input, argv[1]);
     }
 
-    else if(argc != 2)
+    else if (argc != 2)
     {
         printf("Usage: ./ceasar key \n");
         return 1;
