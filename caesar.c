@@ -8,7 +8,7 @@ int main(int argc, string argv[])
 {
     int argv_length = strlen(argv[1]);
 
-    if(argc != 2)
+    if(argc < 2)
     {
         printf("Usage: ./ceasar key \n");
         return 1;
