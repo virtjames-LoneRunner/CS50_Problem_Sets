@@ -12,7 +12,7 @@ char alphabet[4] = {'A', 'Z', 'a', 'z'};
 int num_of_letters;
 int num_of_words = 1;
 int num_of_sentences;
-float index_score;
+//float index_score;
 
 void check_level(int letters, int sentences, int words);
 
@@ -42,10 +42,7 @@ int main(void)
         }
         if ((int)characters[i] == 46 || (int)characters[i] == 33 || (int)characters[i] == 63)
         {
-            if((int)characters[i+1] != 46 || (int)characters[i+1] != 33 || (int)characters[i+1] != 63)
-            {
-                num_of_words += 1;
-            }
+            num_of_sentences += 1;
         }
 
     }
@@ -62,7 +59,7 @@ void check_level(int letters, int sentences, int words)
     L = round(L);
     S = roundf(S);
 
-    index_score = 0.0588 * L - 0.296 * S - 15.8;
+    float index_score = 0.0588 * L - 0.296 * S - 15.8;
     index_score = round(index_score);
 
     // Determine Readability
