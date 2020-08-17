@@ -6,6 +6,7 @@
 
 int main(int argc, string argv[])
 {
+    int argv_length = strlen(argv[1]);
 
     if(argc != 2)
     {
@@ -15,7 +16,26 @@ int main(int argc, string argv[])
 
     if (argc >= 2)
     {
-        if (isdigit(*argv[1]))
+        char character_test[argv_length];
+        int good_input = 0;
+
+        for (int i = 0; i < argv_length; i++)
+        {
+            character_test[i] = argv[1][i];
+            if (isdigit(character_test[i]))
+            {
+                good_input += 0;
+            }
+            else
+            {
+                good_input +=1;
+            }
+        }
+
+
+
+
+        if (good_input == 0)
         {
             int key = atoi(argv[1]);
             printf("Cipher key: %i\n", key);
