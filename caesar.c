@@ -63,7 +63,7 @@ int main(int argc, string argv[])
 
         }
 
-    // If one or more of the requirement/s is/are not met
+// If one or more of the requirement/s is/are not met
         else
         {
             printf("Usage: ./ceasar key \n");
