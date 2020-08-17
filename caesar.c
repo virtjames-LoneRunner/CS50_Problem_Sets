@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int encrypt (int input, string argument);
+int encrypt(int input, string argument);
 
 int main(int argc, string argv[])
 {
@@ -29,15 +29,20 @@ int main(int argc, string argv[])
                 good_input +=1;
             }
         }
+
+        // Encryption function
+        // Returns 1 if one or more requirement/s is/are not met
         successful = encrypt(good_input, argv[1]);
     }
+
     else if(argc != 2)
     {
         printf("Usage: ./ceasar key \n");
         return 1;
     }
-    //printf("%i\n", successful);
 
+    // Checks to see if encryption was successful
+    // If not, main function will return 1 or an error
     if (successful == 1)
     {
         return 1;
@@ -50,12 +55,13 @@ int main(int argc, string argv[])
 
 
 
-int encrypt (int input, string argument)
+int encrypt(int input, string argument)
 {
     if (input == 0)
     {
         int key = atoi(argument); // Convert string to integer
 
+        // Other Variables
         string message = get_string("plaintext: ");
         int length = strlen(message);
         printf("ciphertext: ");
@@ -68,12 +74,14 @@ int encrypt (int input, string argument)
                 char new_char = (((message[i] - 'a') + key) % 26) + 'a';
                 printf("%c", new_char);
             }
-            if (message[i] >= 'A' && message[i] <= 'Z')
+
+            else if (message[i] >= 'A' && message[i] <= 'Z')
             {
                 char new_char = (((message[i] - 'A') + key) % 26) + 'A';
                 printf("%c", new_char);
             }
-            if (isspace(message[i]) || ispunct(message[i]))
+
+            else if (isspace(message[i]) || ispunct(message[i]))
             {
                 char new_char = message[i];
                 printf("%c", new_char);
@@ -81,10 +89,12 @@ int encrypt (int input, string argument)
         }
 
     }
+
     else if (input != 0)
     {
         printf("Usage: ./ceasar key \n");
         return 1;
     }
+
     return 0;
 }
