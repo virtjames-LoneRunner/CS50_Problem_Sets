@@ -46,6 +46,7 @@ int main(void)
         }
 
     }
+
     check_level(num_of_letters, num_of_sentences, num_of_words);
     return 0;
 }
@@ -60,7 +61,7 @@ void check_level(int letters, int sentences, int words)
     S = roundf(S);
 
     float index_score = 0.0588 * L - 0.296 * S - 15.8;
-    index_score = round(index_score);
+    //index_score = round(index_score);
 
     // Determine Readability
     if (index_score < 1)
