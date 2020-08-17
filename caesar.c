@@ -116,7 +116,7 @@ int encrypt (int input, string argument)
         }
 
     }
-    else
+    else if (input != 0)
     {
         printf("Usage: ./ceasar key \n");
         return 1;
