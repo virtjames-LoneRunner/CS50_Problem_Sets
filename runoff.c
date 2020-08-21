@@ -130,15 +130,17 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     // TODO
+    bool valid = false;
     for (int i = 0; i < candidate_count; i++)
     {
         if (strcmp(name, candidates[i].name) == 0)
         {
             preferences[voter][rank] = i;
-            return true;
+            valid = true;
+            break;
         }
     }
-    return false;
+    return valid;
 }
 
 // Tabulate votes for non-eliminated candidates
@@ -166,7 +168,7 @@ bool print_winner(void)
     // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].eliminated == false && candidates[i].votes > voter_count / 2)
+        if (candidates[i].votes > voter_count / 2)
         {
             printf("%s\n", candidates[i].name);
             return true;
@@ -212,7 +214,7 @@ void eliminate(int min)
     {
         if (candidates[i].votes == min)
         {
-            candidates[i].eliminated == true;
+            candidates[i].eliminated = true;
         }
     }
     return;
