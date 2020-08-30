@@ -1,7 +1,7 @@
 rows = 0
 
 
-while rows not in range(1, 8):
+while rows not in range(1, 9):
     try:
         rows = int(input("Height: "))
     except:
