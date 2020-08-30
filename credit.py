@@ -48,10 +48,10 @@ def check_card(digits_input):
 
         
         if total % 10 == 0:
-            return "Visa"
+            return "VISA"
         
         else:
-            return "Invalid"
+            return "INVALID"
 
     elif len(digits_input) == 16 and digits_input[0] == 5 and digits_input[1] in mastercard_second:
         while odd_counter != -17:
@@ -83,10 +83,10 @@ def check_card(digits_input):
 
         
         if total % 10 == 0:
-            return "Mastercard"
+            return "MASTERCARD"
         
         else:
-            return "Invalid"
+            return "INVALID"
         
 
     elif len(digits_input) == 13 and digits_input[0] == 4:
@@ -119,10 +119,10 @@ def check_card(digits_input):
 
         
         if total % 10 == 0:
-            return "Visa"
+            return "VISA"
         
         else:
-            return "Invalid"
+            return "INVALID"
         
 
     elif len(digits_input) == 15:
@@ -158,10 +158,10 @@ def check_card(digits_input):
             return "AMEX"
         
         else:
-            return "Invalid"
+            return "INVALID"
 
     else:
-        return "Invalid"
+        return "INVALID"
         
 
 card_type = check_card(digits_input)
