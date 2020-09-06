@@ -13,7 +13,7 @@ house = argv[1].title()
 db = SQL("sqlite:///students.db")
 
 # Query students.db for student data
-list_of_students =  db.execute("SELECT first, middle, last, birth FROM students WHERE house = ? ORDER BY last, first", house)
+list_of_students = db.execute("SELECT first, middle, last, birth FROM students WHERE house = ? ORDER BY last, first", house)
 
 # If the query does not return anything then the house argument is wrong
 if list_of_students == []:

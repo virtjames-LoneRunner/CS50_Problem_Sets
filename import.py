@@ -11,8 +11,6 @@ if len(argv) != 2:
 # Create database object
 db = SQL("sqlite:///students.db")
 
-
-
 # Open the CSV file and write contents to a list as dictionaries
 csv_filename = argv[1]
 with open(csv_filename, 'r') as csv_file:
@@ -30,7 +28,6 @@ for data in data_list:
 
     # Returns a list of the names using the spaces as separator
     name = name.split()
-    #print(name)
 
     # Create a dictionary for storing separated names
     name_dict = {}
@@ -50,7 +47,6 @@ for data in data_list:
     # Changes the value of the key name to a dictionary of separated names
     data["name"] = name_dict
 
-#print(data_list)
 
 # Inserting data into the database
 for item in data_list:
@@ -61,6 +57,5 @@ for item in data_list:
     birth = item["birth"]
     
     # Insert each item into database
-    db.execute("INSERT INTO students (first, middle, last, house, birth) VALUES (?, ?, ?, ?, ?)",first_name, middle_name, last_name, house, birth)
-
-
+    db.execute("INSERT INTO students (first, middle, last, house, birth) VALUES (?, ?, ?, ?, ?)",
+               first_name, middle_name, last_name, house, birth)
