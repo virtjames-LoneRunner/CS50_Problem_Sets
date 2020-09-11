@@ -17,6 +17,3 @@ while rows not in range(1, 9):
 # Print the pyramid
 for x in range(1, rows + 1):
     print(" " * (rows - x) + "#" * x + "  " + "#" * x)
-
-
-
